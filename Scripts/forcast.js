@@ -31,6 +31,7 @@ const updateUI = (data) => {
     const cityDetails = data.cityDetails;
     const weather = data.weather; 
 
+    // update weather details template 
 dets.innerHTML = ` 
 <h5 class="my-3">${cityDetails.EnglishName}</h5>
             <div class="my-3">${weather.WeatherText}</div>
@@ -39,6 +40,12 @@ dets.innerHTML = `
               <span>&deg;C</span>
             </div>
             `;
+
+    // remove the d-none class if present 
+    if(card.classList,contains('d-none')){
+        card.classList.remove('d-none');
+    }
+
 }
 
 placeForm.addEventListener('submit', async e => {
