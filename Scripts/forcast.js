@@ -1,5 +1,12 @@
 const apiKey = 'EPPB4746tUOr12IhKAniCfeJjm3o3Oqv';
+const placeForm = document.querySelector('form');
+const card = document.querySelector('.card');
+const dets = document.querySelector('.details')
 
+const updateUI = (data) => {
+
+    const
+}
 const getWeather = async (identification) => {
     const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
     const query = `${identification}?apikey=${apiKey}`;
@@ -22,7 +29,7 @@ const updatePlace = async (place) => {
     return { cityDetails, weather };
 };
 
-const placeForm = document.querySelector('form');
+
 placeForm.addEventListener('submit', async e => {
     e.preventDefault();
 
