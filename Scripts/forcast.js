@@ -3,10 +3,7 @@ const placeForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const dets = document.querySelector('.details')
 
-const updateUI = (data) => {
 
-    const
-}
 const getWeather = async (identification) => {
     const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
     const query = `${identification}?apikey=${apiKey}`;
@@ -29,6 +26,20 @@ const updatePlace = async (place) => {
     return { cityDetails, weather };
 };
 
+const updateUI = (data) => {
+
+    const cityDetails = data.cityDetails;
+    const weather = data.weather; 
+
+dets.innerHTML = ` 
+<h5 class="my-3">${cityDetails.EnglishName}</h5>
+            <div class="my-3">${weather.WeatherText}</div>
+            <div class="display-4 my-4">
+              <span>${weather.Temperature.Metric.Value}</span>
+              <span>&deg;C</span>
+            </div>
+            `;
+}
 
 placeForm.addEventListener('submit', async e => {
     e.preventDefault();
@@ -38,6 +49,7 @@ placeForm.addEventListener('submit', async e => {
     placeForm.reset();
 
     // update the city value
-    const data = await updatePlace(place);
-    console.log(data);
+    updatePlace(place)
+    .then(data => updateUI(data))
+    .catch(err => console.log(err))
 });
