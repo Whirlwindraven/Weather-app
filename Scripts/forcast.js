@@ -49,7 +49,7 @@ dets.innerHTML = `
     if(weather.IsDayTime){
         timeSrc = 'images/day.svg';
      } else {
-        timeSrc = 'imgages/night.svg';
+        timeSrc = 'images/night.svg';
     }
      time.setAttribute('src', timeSrc);
 
@@ -71,4 +71,15 @@ placeForm.addEventListener('submit', async e => {
     updatePlace(place)
     .then(data => updateUI(data))
     .catch(err => console.log(err))
+
+
+// updating local storage
+localStorage.setItem('location', place);
+
 });
+
+if(localStorage.getItem('location')){
+    updatePlace(localStorage.getItem('location'))
+    .then(data => updateUI(data))
+    .catch()
+}
