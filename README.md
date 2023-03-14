@@ -7,11 +7,11 @@ In this project I created a weather app the uses accuweather API to grasp data o
 To access the Weather-app site please click [here](https://whirlwindraven.github.io/Weather-app/)
 
 ## Preview Screenshot 
-Sample of the site is found in the screenshot below 
+Sample of the application is found in the screenshot below 
 ![Screenshot-of-Weatherapp](./images/Weather%20app%20screenshot.jpg "Weatherapp-Screenshot")
 
 ## Authors
-edX bootcamps LLC
+edX bootcamps LLC<br>
 Fady Khalil 
 
 
