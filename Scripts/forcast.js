@@ -42,6 +42,9 @@ dets.innerHTML = `
             </div>
             `;
 
+   const iconSrc = weather.WeatherIcon ? `./images/icons/${weather.WeatherIcon}.svg` : '';
+   icon.setAttribute('src', iconSrc);
+            
     let timeSrc= null;
     if(weather.IsDayTime){
         timeSrc = 'images/day.svg';
