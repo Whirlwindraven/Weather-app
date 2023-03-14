@@ -2,7 +2,8 @@ const apiKey = 'EPPB4746tUOr12IhKAniCfeJjm3o3Oqv';
 const placeForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const dets = document.querySelector('.details')
-
+const time = document.querySelector('img.time');
+const icon = document.querySelector('.icon img')
 
 const getWeather = async (identification) => {
     const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
@@ -41,12 +42,20 @@ dets.innerHTML = `
             </div>
             `;
 
-    // remove the d-none class if present 
-    if(card.classList,contains('d-none')){
-        card.classList.remove('d-none');
+    let timeSrc= null;
+    if(weather.IsDayTime){
+        timeSrc = 'images/day.svg';
+     } else {
+        timeSrc = 'imgages/night.svg';
     }
+     time.setAttribute('src', timeSrc);
 
-}
+ // remove the d-none class if present 
+     if(card.classList.contains('d-none')){
+        card.classList.remove('d-none');
+     }
+
+};
 
 placeForm.addEventListener('submit', async e => {
     e.preventDefault();
